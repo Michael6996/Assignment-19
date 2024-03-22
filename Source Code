@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class App {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        //scanner asks for user input
+        System.out.println("Enter the number of items followed by the items:");
+        int n = scanner.nextInt();
+        int longest = 0, current = 0;
+        //converts input to output using for, if and else statements/loops
+        for (int i = 0; i < n; i++) {
+            if (scanner.hasNextInt()) {
+                scanner.nextInt();
+                current++;
+                if (current > longest) {
+                    longest = current;
+                }
+            } else {
+                scanner.next();
+                current = 0;
+            }
+        }
+        //displays the output
+        System.out.println("The length of the longest sequence of complete passes is: " + longest);
+        scanner.close();
+        //close scanner to avoid annoying warning
+    }
+}
